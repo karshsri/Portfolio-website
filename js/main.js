@@ -10,91 +10,74 @@
 */
 
 const PROJECTS = [
+  
   {
     id: 'p1',
-    title: 'Predictive Analytics Dashboard',
-    blurb: 'Interactive dashboard for forecasting trends and monitoring KPIs with clean, recruiter-ready storytelling.',
-    icon: 'fa-chart-simple',
-    tags: ['python', 'powerbi', 'sql', 'analytics'],
-    tech: ['Python', 'Power BI', 'SQL', 'Pandas'],
+    title: 'Electricity Consumption Forecasting',
+    blurb: 'Regression-based forecasting system to predict electricity consumption trends from historical data.',
+    icon: 'fa-bolt',
+    tags: ['python', 'ml', 'analytics'],
+    tech: ['Python', 'Pandas', 'Scikit-learn', 'Regression'],
     features: [
-      'Data pipeline from raw CSV/DB to curated model-ready tables',
-      'Forecasting + scenario comparisons (baseline vs optimised)',
-      'KPI layer with drill-through views for root-cause analysis',
-      'Executive-friendly layout and narrative insights'
+      'Performed data cleaning, feature engineering, and exploratory data analysis',
+      'Built and evaluated regression models for accurate consumption forecasting',
+      'Visualized trends and predictions for decision support',
+      'Focused on real-world energy demand use cases'
     ],
     links: {
-      github: '#',
+      github: 'https://github.com/karshsri/Electricity-Consumption-Regression-Forecast',
       demo: '#',
       docs: '#'
     },
-    shots: ['Overview', 'KPI Drilldown', 'Forecast View'],
-    category: 'Dashboard'
-  },
-  {
-    id: 'p2',
-    title: 'Machine Learning Model for [Domain]',
-    blurb: 'End-to-end ML pipeline with feature engineering, training, evaluation, and explainability.',
-    icon: 'fa-brain',
-    tags: ['python', 'ml', 'research'],
-    tech: ['Python', 'Scikit-learn / TensorFlow', 'NumPy', 'Matplotlib'],
-    features: [
-      'Robust preprocessing (missing values, scaling, encoding)',
-      'Model selection + cross-validation',
-      'Metrics tracking and error analysis',
-      'Explainability (feature importance / SHAP-style analysis)'
-    ],
-    links: {
-      github: '#',
-      demo: '#',
-      docs: '#'
-    },
-    shots: ['Pipeline', 'Evaluation', 'Explainability'],
+    shots: ['EDA', 'Regression Model', 'Forecast Results'],
     category: 'Machine Learning'
   },
+
+  {
+    id: 'p2',
+    title: 'British Airways Data Analysis',
+    blurb: 'Customer sentiment and operational insights analysis using real airline review and service data.',
+    icon: 'fa-plane',
+    tags: ['python', 'analytics', 'sql'],
+    tech: ['Python', 'Pandas', 'Data Analysis', 'Visualization'],
+    features: [
+      'Analyzed airline customer reviews to uncover satisfaction drivers',
+      'Identified trends impacting customer experience and service quality',
+      'Created visual insights to support data-driven airline decisions',
+      'Applied analytical thinking to a real-world business dataset'
+    ],
+    links: {
+      github: 'https://github.com/karshsri/British_airline_analysis',
+      demo: '#',
+      docs: '#'
+    },
+    shots: ['Data Cleaning', 'Insights', 'Visual Analysis'],
+    category: 'Data Analytics'
+  },
+
   {
     id: 'p3',
-    title: 'Data Visualization Suite',
-    blurb: 'A set of business-ready visualizations with strong SQL foundations and clear analytical narrative.',
-    icon: 'fa-chart-pie',
-    tags: ['tableau', 'sql', 'analytics'],
-    tech: ['Tableau', 'SQL', 'Data Modeling'],
+    title: 'Data Professional Survey Analysis',
+    blurb: 'Comprehensive survey analysis uncovering trends in salaries, skills, and career paths of data professionals.',
+    icon: 'fa-chart-bar',
+    tags: ['powerbi', 'analytics', 'sql'],
+    tech: ['Power BI', 'Data Visualization', 'Survey Analysis'],
     features: [
-      'Star-schema style modeling for faster slicing/dicing',
-      'Interactive dashboards with parameters and calculated fields',
-      'Consistency in formatting & chart choice for readability',
-      'Insight annotations for rapid decision-making'
+      'Cleaned and transformed raw survey data for analysis',
+      'Built an interactive Power BI dashboard for storytelling',
+      'Analyzed salary trends, tools, and job satisfaction',
+      'Designed visuals for recruiter and business audiences'
     ],
     links: {
-      github: '#',
+      github: 'https://github.com/karshsri/Data-Professional-survey',
       demo: '#',
       docs: '#'
     },
-    shots: ['Dashboard', 'Segments', 'Trends'],
-    category: 'Visualization'
-  },
-  {
-    id: 'p4',
-    title: 'Research Project — [Topic]',
-    blurb: 'AI/ML research exploration with experiments, ablations, and results packaged for clarity.',
-    icon: 'fa-flask',
-    tags: ['research', 'ml', 'python'],
-    tech: ['Python', 'Experiment Tracking', 'Literature Review'],
-    features: [
-      'Problem framing + literature summary',
-      'Experiment design with ablation studies',
-      'Reproducible runs (seed control, config separation)',
-      'Clean reporting of results and limitations'
-    ],
-    links: {
-      github: '#',
-      demo: '#',
-      docs: '#'
-    },
-    shots: ['Method', 'Results', 'Ablation'],
-    category: 'Research'
+    shots: ['Dashboard', 'Salary Trends', 'Skill Insights'],
+    category: 'Dashboard'
   }
 ];
+
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
