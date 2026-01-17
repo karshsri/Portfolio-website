@@ -1,58 +1,23 @@
-name: Deploy Portfolio Website
+name: Portfolio Deployment
 
-# Trigger this workflow on push to main
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
-
-# Permissions needed to deploy to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    - main
 
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v1
 
-      # If your site needs a build step (e.g., npm build),
-      # uncomment the following block and update accordingly.
-      #
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "18"
-      #
-      # - name: Install dependencies
-      #   run: npm install
-      #
-      # - name: Build project
-      #   run: npm run build
-      #
-      # - name: Prepare build output
-      #   run: |
-      #     # If your build output is in "dist" or another folder:
-      #     cp -r dist public
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
 
-      - name: Setup Pages deployment
-        uses: actions/configure-pages@v3
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          # Serve the folder that contains your final site.
-          # If your site is at the root (HTML/CSS/JS),
-          # you can specify "./"
-          path: "./"
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-
+    - name: Deploy static site to S3 bucket
+      run: aws s3 sync . s3://tws-junoon --delete
