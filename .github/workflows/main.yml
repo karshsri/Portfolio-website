@@ -1,1 +1,58 @@
+name: Deploy Portfolio Website
+
+# Trigger this workflow on push to main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissions needed to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # If your site needs a build step (e.g., npm build),
+      # uncomment the following block and update accordingly.
+      #
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "18"
+      #
+      # - name: Install dependencies
+      #   run: npm install
+      #
+      # - name: Build project
+      #   run: npm run build
+      #
+      # - name: Prepare build output
+      #   run: |
+      #     # If your build output is in "dist" or another folder:
+      #     cp -r dist public
+
+      - name: Setup Pages deployment
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Serve the folder that contains your final site.
+          # If your site is at the root (HTML/CSS/JS),
+          # you can specify "./"
+          path: "./"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
