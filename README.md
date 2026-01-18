@@ -25,7 +25,7 @@ The site is fully responsive and optimized for desktop, tablet, and mobile devic
 
 ## ✨ Key Features
 
-* 📱 **Responsive Design** (Mobile & Desktop friendly)
+* 📱 **Responsive Design** (Desktop friendly)
 * ⚡ **Fast & Lightweight** static website
 * 🎯 **Project-focused layout**
 * 🌙 Clean and professional UI
